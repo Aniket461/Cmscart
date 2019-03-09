@@ -1,0 +1,56 @@
+<% include _layouts/header %>
+
+<h3>This is the cart</h3>
+
+<% if(typeof cart !== "undefined") { %>
+
+	<table class="table table-striped">
+
+	<tr>
+
+		<th>Image</th>
+		<th>Title</th>
+		<th>Price</th>
+		<th>Quantity</th>
+		<th></th>
+		<th>Subtotal</th>
+	</tr>
+
+	<% cart.forEach(function(product){ %>
+
+	<% var sub = parseFloat(product.qty * product.price).toFixed(2) %>
+
+	<tr>
+
+		<td><img class="cpi" src="<%= product.image %>" alt=""></td>
+		<td><%= product.title %></td>
+		<td>$<%= product.price %></td>
+		<td><%= product.quantity %></td>
+		<td>
+			<a href="/cart/update/<%= product.title %>?action=add">+</a>&nbsp;
+			<a href="/cart/update/<%= product.title %>?action=remove">-</a>&nbsp;
+			<a href="/cart/update/<%= product.title %>?action=clear">Clear</a>&nbsp;
+
+		</td>
+
+
+		<td>$<%= sub %></td>
+
+	</tr>
+
+
+
+	<% }); %>
+
+	</table>
+
+
+	
+<% } else{%>
+
+<h3 class="text-center"></h3>
+
+<% } %>
+
+
+<% include _layouts/footer %>
