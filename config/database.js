@@ -1,4 +1,4 @@
 module.exports = {
 
-	database: 'mongodb://localhost/cmscart'
+	database: 'mongodb+srv://cart-7wqkq.mongodb.net/cmscart'
 }
