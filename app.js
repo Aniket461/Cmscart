@@ -193,8 +193,5 @@ app.use('/', pages);
 
 //start the server
 
-var port = 3000;
-app.listen(port, function(){
 
-	console.log('Server Started on port:' +port);
-});
+app.listen(process.env.PORT || 5000);
